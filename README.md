@@ -4,7 +4,8 @@
 - Create React App
 - Configured TailwindCSS
 - Built the Header
-- Building Login Form
+- Building Login Form(Sign in)
+- Sign Up from
 
 
 
