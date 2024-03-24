@@ -11,7 +11,7 @@
    - Sign In/ Sign Up from
    - Redirect to browse PAge
 - Browse page(After Authentication)
-   -Header
+   - Header
       - Main Movie
           - Tailer in background
           - Title and Discription on tailer
