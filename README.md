@@ -4,8 +4,11 @@
 - Create React App
 - Configured TailwindCSS
 - Built the Header
+- Routing of our app
 - Building Login Form(Sign in)
 - Sign Up from
+- Validation
+- useRef Hook
 
 
 
