@@ -3,6 +3,8 @@
 ## Steps
 - Create React App
 - Configured TailwindCSS
+- Built the Header
+- Building Login Form
 
 
 
