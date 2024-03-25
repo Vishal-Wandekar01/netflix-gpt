@@ -5,6 +5,7 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../utils/firebase";
 import { useNavigate } from "react-router-dom";
+import { updateProfile } from "firebase/auth";
 
 const Login = () => {
 
@@ -39,6 +40,19 @@ const Login = () => {
         .then((userCredential) => {
           // Signed up 
           const user = userCredential.user;
+          //Display Name API
+          updateProfile(user, {
+            displayName: name?.current?.value, photoURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2aOQSpwupCiBIuqzAz1bP3X639ANCSKRkkeTLpcW-ew&s"
+          }).then(() => {
+            // Profile updated!
+            navigate("/browse");
+          }).catch((error) => {
+            // An error occurred
+            setErrorMessage(error);
+          });
+
+
+
           console.log(user);
           //if user sign out navigate him to main page
           navigate("/")

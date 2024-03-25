@@ -30,8 +30,8 @@ const Body = () => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
         //Sign In Case
-        const { uid, email, displayName } = user;
-        dispatch(addUser({ uid: uid, email: email, displayName: displayName })); //Added all the data into the store
+        const { uid, email, displayName, photoURL } = user;
+        dispatch(addUser({ uid: uid, email: email, displayName: displayName, photoURL: photoURL })); //Added all the data into the store
 
         //Redirect user to browse page
 
