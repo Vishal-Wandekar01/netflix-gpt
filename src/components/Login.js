@@ -6,6 +6,8 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../utils/firebase";
 import { useNavigate } from "react-router-dom";
 import { updateProfile } from "firebase/auth";
+import { useDispatch } from "react-redux";
+import { addUser } from "../utils/userSlice";
 
 const Login = () => {
 
@@ -13,6 +15,8 @@ const Login = () => {
 
   const [isSignInForm, setIsSignInForm] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
+
+  const dispatch = useDispatch();
 
   const name = useRef(null);
   const email = useRef(null);
@@ -44,6 +48,9 @@ const Login = () => {
           updateProfile(user, {
             displayName: name?.current?.value, photoURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2aOQSpwupCiBIuqzAz1bP3X639ANCSKRkkeTLpcW-ew&s"
           }).then(() => {
+            //Updating our store once again
+            const { uid, email, displayName, photoURL } = auth.currentUser;
+            dispatch(addUser({ uid: uid, email: email, displayName: displayName, photoURL: photoURL }));
             // Profile updated!
             navigate("/browse");
           }).catch((error) => {

@@ -14,6 +14,8 @@
 - Create SignUp User Account
 - Implement Sign In User API
 - Created Redux Store with UserSLice
+- Implemented Sign Out
+- Updated profile
 
 
 
