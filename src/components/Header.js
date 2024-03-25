@@ -27,11 +27,12 @@ const Header = () => {
         src="https://cdn.cookielaw.org/logos/dd6b162f-1a32-456a-9cfe-897231c7763c/4345ea78-053c-46d2-b11e-09adaef973dc/Netflix_Logo_PMS.png"
         alt="netflix-logo"
       />
-      <div className="flex p-3">
+      {user && (<div className="flex p-3">
         <img className="w-12 h-12 " src={user?.photoURL}
           alt="user-icon" />
         <button onClick={handleSignOut} className="font-bold text-white">(Sign Out)</button>
       </div>
+      )}
     </div>
   );
 };
