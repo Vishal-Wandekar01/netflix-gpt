@@ -4,14 +4,11 @@ import { checkValidationData } from "../utils/validate";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../utils/firebase";
-import { useNavigate } from "react-router-dom";
 import { updateProfile } from "firebase/auth";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
 
 const Login = () => {
-
-  const navigate = useNavigate();
 
   const [isSignInForm, setIsSignInForm] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
@@ -52,17 +49,12 @@ const Login = () => {
             const { uid, email, displayName, photoURL } = auth.currentUser;
             dispatch(addUser({ uid: uid, email: email, displayName: displayName, photoURL: photoURL }));
             // Profile updated!
-            navigate("/browse");
+
           }).catch((error) => {
             // An error occurred
             setErrorMessage(error);
           });
 
-
-
-          console.log(user);
-          //if user sign out navigate him to main page
-          navigate("/")
 
         })
         .catch((error) => {
@@ -80,9 +72,9 @@ const Login = () => {
         .then((userCredential) => {
           // Signed in 
           const user = userCredential.user;
-          console.log(user);
+          // console.log(user);
           //Redirect user to browse page
-          navigate("/browse")
+
 
         })
         .catch((error) => {
